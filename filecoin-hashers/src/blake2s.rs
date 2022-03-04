@@ -498,6 +498,9 @@ impl Hasher for Blake2sHasher<Fr> {
     type Domain = Blake2sDomain<Fr>;
     type Function = Blake2sFunction<Fr>;
 
+    // The hasher name should be the same for all fields. The hasher name is used to name the SDR
+    // parent-cache; graph parent generation is not affected by a hasher's field, thus the field
+    // name should not be included in the hasher name.
     fn name() -> String {
         "Blake2sHasher".into()
     }
@@ -507,7 +510,7 @@ impl Hasher for Blake2sHasher<Fp> {
     type Function = Blake2sFunction<Fp>;
 
     fn name() -> String {
-        "Blake2sHasher_pallas".into()
+        "Blake2sHasher".into()
     }
 }
 impl Hasher for Blake2sHasher<Fq> {
@@ -515,6 +518,6 @@ impl Hasher for Blake2sHasher<Fq> {
     type Function = Blake2sFunction<Fq>;
 
     fn name() -> String {
-        "Blake2sHasher_vesta".into()
+        "Blake2sHasher".into()
     }
 }

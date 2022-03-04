@@ -526,6 +526,9 @@ impl Hasher for Sha256Hasher<Fr> {
     type Domain = Sha256Domain<Fr>;
     type Function = Sha256Function<Fr>;
 
+    // The hasher name should be the same for all fields. The hasher name is used to name the SDR
+    // parent-cache; graph parent generation is not affected by a hasher's field, thus the field
+    // name should not be included in the hasher name.
     fn name() -> String {
         "sha256_hasher".into()
     }
@@ -535,7 +538,7 @@ impl Hasher for Sha256Hasher<Fp> {
     type Function = Sha256Function<Fp>;
 
     fn name() -> String {
-        "sha256_hasher_pallas".into()
+        "sha256_hasher".into()
     }
 }
 impl Hasher for Sha256Hasher<Fq> {
@@ -543,6 +546,6 @@ impl Hasher for Sha256Hasher<Fq> {
     type Function = Sha256Function<Fq>;
 
     fn name() -> String {
-        "sha256_hasher_vesta".into()
+        "sha256_hasher".into()
     }
 }

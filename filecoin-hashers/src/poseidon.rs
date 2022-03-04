@@ -610,6 +610,9 @@ impl Hasher for PoseidonHasher<Fr> {
     type Domain = PoseidonDomain<Fr>;
     type Function = PoseidonFunction<Fr>;
 
+    // The hasher name should be the same for all fields. The hasher name is used to name the SDR
+    // parent-cache; graph parent generation is not affected by a hasher's field, thus the field
+    // name should not be included in the hasher name.
     fn name() -> String {
         "poseidon_hasher".into()
     }
@@ -619,7 +622,7 @@ impl Hasher for PoseidonHasher<Fp> {
     type Function = PoseidonFunction<Fp>;
 
     fn name() -> String {
-        "poseidon_hasher_pallas".into()
+        "poseidon_hasher".into()
     }
 }
 impl Hasher for PoseidonHasher<Fq> {
@@ -627,6 +630,6 @@ impl Hasher for PoseidonHasher<Fq> {
     type Function = PoseidonFunction<Fq>;
 
     fn name() -> String {
-        "poseidon_hasher_vesta".into()
+        "poseidon_hasher".into()
     }
 }
