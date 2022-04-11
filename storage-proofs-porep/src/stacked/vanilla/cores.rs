@@ -13,13 +13,13 @@ pub enum Level {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct CoreAllocatorSettings {
     #[serde(default)]
-    pub cpus: Option<Vec<usize>>
-    pub level: Level
+    pub cpus: Option<Vec<usize>>,
+    pub level: Level,
 }
 
 impl CoreAllocatorSettings {
     pub fn load() -> Result<Self> {
-        let content = std::fs::read_to_string("core_allocator.yaml")?;
+        let content = std::fs::read_to_string(std::env::var("CORE_ALLOCATOR_SETTINGS_FILE").unwrap_or("core_allocator.yaml".to_owned()))?;
         let this = serde_yaml::from_str(&content)?;
         Ok(this)
     }
