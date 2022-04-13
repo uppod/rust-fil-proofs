@@ -43,7 +43,7 @@ yastl = "0.1.2"
 fil_logger = "0.1"
 pairing = "0.21"
 blstrs = "0.4.0"
-core-allocator = { version = "0.2.1", optional = true }
+core-allocator = { version = "0.2.2", optional = true }
 serde_yaml = "*"
 tempfile = "3"
 hwloc2 = "*"
