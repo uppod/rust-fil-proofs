@@ -10,7 +10,7 @@ use std::time::Duration;
 
 use anyhow::{Context, Result};
 use byte_slice_cast::{AsByteSlice, AsMutSliceOf};
-use core_allocator::CoreGroup;
+use filecoin_core_affinity::CoreGroup;
 use filecoin_hashers::Hasher;
 use generic_array::{
     typenum::{Unsigned, U64},

@@ -1,4 +1,4 @@
-use core_allocator::*;
+use filecoin_core_affinity::*;
 use lazy_static::lazy_static;
 use anyhow::Result;
 use serde::{Serialize, Deserialize};
