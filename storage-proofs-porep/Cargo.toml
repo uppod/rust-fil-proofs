@@ -65,7 +65,7 @@ default = ["opencl", "multicore-sdr", "single-saving"]
 cuda = ["storage-proofs-core/cuda", "filecoin-hashers/cuda", "neptune/cuda", "bellperson/cuda", "fr32/cuda"]
 opencl = ["storage-proofs-core/opencl", "filecoin-hashers/opencl", "neptune/opencl", "bellperson/opencl", "fr32/opencl"]
 isolated-testing = []
-multicore-sdr = ["core-allocator"]
+multicore-sdr = ["filecoin-core-affinity"]
 single-saving = []
 
 [[bench]]
