@@ -37,7 +37,7 @@ impl CoreAllocatorSettings {
         let mut excluded: Vec<u32> = Vec::new();
         if let Some(cfg) = self.excluded.clone() {
             excluded = cfg;
-        }.expect("Please configure cores to filter");
+        };
         let finished = allocator.finish(excluded);
         println!("CoreGroups {:?}", finished);
         Ok(Box::new(finished))
