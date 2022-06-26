@@ -15,6 +15,7 @@ pub struct CoreAllocatorSettings {
     #[serde(default)]
     pub cpus: Option<Vec<usize>>,
     pub level: Level,
+    pub excluded: Option<Vec<u32>>,
 }
 
 impl CoreAllocatorSettings {
@@ -32,7 +33,12 @@ impl CoreAllocatorSettings {
         if let Some(cpus) = self.cpus.clone() {
             allocator = allocator.on_cpu(cpus);
         }
-        let finished = allocator.finish();
+
+        let mut excluded: Vec<u32> = Vec::new();
+        if let Some(cfg) = self.excluded.clone() {
+            excluded = cfg;
+        }.expect("Please configure cores to filter");
+        let finished = allocator.finish(excluded);
         println!("CoreGroups {:?}", finished);
         Ok(Box::new(finished))
     }

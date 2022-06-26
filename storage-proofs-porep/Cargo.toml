@@ -44,7 +44,7 @@ pairing = "0.21"
 fil_logger = "0.1.6"
 blstrs = "0.4.0"
 #core-allocator = { version = "0.2.2", optional = true }
-filecoin-core-affinity = { version = "0.1.1", optional = true }
+filecoin-core-affinity = { version = "0.2.1", optional = true }
 serde_yaml = "*"
 tempfile = "3"
 hwloc2 = "*"
